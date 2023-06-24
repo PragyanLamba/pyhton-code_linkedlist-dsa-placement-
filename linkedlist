@@ -47,7 +47,7 @@ class linkedlist:
     def clear(self):
         self.head=None
         self.n=0
-    def delet_head(self):
+    def delete_head(self):
         if self.head==None:
             return"empty list"
         self.head=self.head.next
@@ -57,9 +57,39 @@ class linkedlist:
             return"empty list"
         curr=self.head
         if curr.next ==None:
-            return self.delet_head
+            return self.delete_head
         while curr.next.next!=None:
             curr=curr.next
         curr.next= None
         self.n=self.n-1
+    def remove(self,value):
+        if self.head == None:
+             return 'Empty LL'
 
+
+
+        if self.head.data == value:
+            return self.delet_head()
+
+
+
+        curr = self.head
+
+        while curr.next != None:
+             if curr.next.data == value:
+                break
+        curr = curr.next
+
+
+
+
+        if curr.next == None:
+            return 'Not Found'
+
+
+        else:
+            curr.next = curr.next.next
+            self.n = self.n - 1
+
+
+      
