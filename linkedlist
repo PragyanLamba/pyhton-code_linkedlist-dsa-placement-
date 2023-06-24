@@ -6,7 +6,7 @@ class linkedlist:
     def __init__(self):
         self.head=None
         self.n=0
-    def len(self):
+    def __len__(self):
         return self.n
     def insert_head(self,value):
         new_node=node(value)
@@ -47,9 +47,9 @@ class linkedlist:
     def clear(self):
         self.head=None
         self.n=0
-    def delete_head(self):
+    def delet_head(self):
         if self.head==None:
-            return"empty list"
+            return'empty'
         self.head=self.head.next
         self.n=self.n-1
     def pop(self):
@@ -57,11 +57,12 @@ class linkedlist:
             return"empty list"
         curr=self.head
         if curr.next ==None:
-            return self.delete_head
+            return self.delet_head
         while curr.next.next!=None:
             curr=curr.next
         curr.next= None
         self.n=self.n-1
+
     def remove(self,value):
         if self.head == None:
              return 'Empty LL'
@@ -91,5 +92,25 @@ class linkedlist:
             curr.next = curr.next.next
             self.n = self.n - 1
 
+    def search(self,value):
+        curr=self.head
+        pos=0
+        while curr!=None:
+            if curr.data==value:
+                return pos
+            pos+=1
+            curr=curr.next
+        return "not found"
+    def __getitem__(self,index):
 
-      
+
+        curr = self.head
+        pos = 0
+        while curr != None:
+            if pos == index:
+                return curr.data
+            curr = curr.next
+            pos = pos + 1
+
+        return 'IndexError'
+
