@@ -28,7 +28,7 @@ class Solution(object):
             tail.next=list2
         return dummy.next  
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                                                                                     an other way
+                                                             other way
 class Solution(object):
     def mergeKLists(self, lists):
         values,head,pointer=[],None,None
